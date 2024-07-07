@@ -1,0 +1,32 @@
+﻿@model List<Director>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+
+<div class="mb-2">
+    <table class="table table-hover text-nowrap">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>İsim</th>
+                <th>Soyisim</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in Model)
+                {
+                    <th>@item.ID</th>
+                    <th>@item.Firstname</th>
+                    <th>@item.Lastname</th>
+                    <th>
+                        <a href="~/Dashboard/Director/Delete/@item.ID" class="btn btn-danger btn-sm">Delete</a>
+                    </th>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>

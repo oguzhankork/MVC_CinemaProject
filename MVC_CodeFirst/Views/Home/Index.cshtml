@@ -1,0 +1,121 @@
+﻿@model List<MovieViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Starter Page</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Starter Page</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            @if (Model != null)
+            {
+                Random rnd = new Random();
+
+                @foreach (var item in Model)
+                {
+                    string buttonClassName = "bg-info";
+                    int rndNumber = rnd.Next(0, 5);
+
+                    switch (rndNumber)
+                    {
+                        case 1:
+                            buttonClassName = "bg-info";
+                            break;
+                        case 2:
+                            buttonClassName = "bg-success";
+                            break;
+                        case 3:
+                            buttonClassName = "bg-warning";
+                            break;
+                        case 4:
+                            buttonClassName = "bg-danger";
+                            break;
+                    }
+
+                    <div class="col-lg-3 col-6">
+
+                        <div class="small-box @buttonClassName">
+                            <div class="inner">
+                                <h3>@item.Name</h3>
+                                <p>@item.Description</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-bag"></i>
+                            </div>
+                            <a href="/movieDetails/@item.Id" class="small-box-footer">Film Detayı <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        @*   <div class="row">
+        <div class="col-12">
+        <div class="card">
+        <div class="card-header">
+        <h3 class="card-title">En Son Eklenen Filmler</h3>
+        <div class="card-tools">
+        <div class="input-group input-group-sm" style="width: 150px;">
+        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+        <div class="input-group-append">
+        <button type="submit" class="btn btn-default">
+        <i class="fas fa-search"></i>
+        </button>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+        <thead>
+        <tr>
+        <th>ID</th>
+        <th>Film Ad</th>
+        <th>Açıklama</th>
+        <th>Yönetmen</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>1</td>
+        <td>Movie 1</td>
+        <td>Lorem ipsum</td>
+        <td>Director 1</td>
+        <td>
+        <a class="btn btn-sm btn-warning">Update</a>
+        <a class="btn btn-sm btn-danger">Delete</a>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+
+        </div>
+
+        </div>
+        </div> *@
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->

@@ -1,0 +1,34 @@
+﻿@model Director
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-md-6 mx-auto">
+    <form method="post">
+        <div class="mb-2">
+            <input type="hidden" name="ID" value="@Model.ID" />
+            <h2>@Model.Firstname</h2>
+        </div>
+        <div class="mb-2">
+            <table class="table table-hover text-nowrap">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.ID</td>
+                        <td>@Model.Firstname</td>
+                        <td>@Model.Lastname</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-primary" type="submit">Delete</button>
+        <a href="~/Dashboard/Home/Index" class="btn btn-primary">Back</a>
+    </form>
+</div>
